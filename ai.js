@@ -14,7 +14,7 @@ async function fetchToolsData() {
   }
 }
 
-
+// cards property //
 
 function createToolCard(tool) {
     const toolCard = document.createElement("div");
