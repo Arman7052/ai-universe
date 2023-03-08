@@ -130,11 +130,7 @@ const showModalData = modalData => {
             <h5 >${modalData.data.input_output_examples[0].input}</h5>
             <p>${modalData.data.input_output_examples[0].output}</p>
             
-  </div>
-
-
-  </div>
-
+ 
   `
 
 }
