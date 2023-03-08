@@ -150,6 +150,8 @@ const showAllCard = () => {
     })
 };
 
+// Loader spinner //
+
 window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("loader--hidden");
 
