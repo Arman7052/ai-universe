@@ -62,7 +62,7 @@ const showAllData = (cards) => {
 };
 
 
-    
+
 // Find details from id //
 
 const showDetails = (id) => {
@@ -74,17 +74,68 @@ const showDetails = (id) => {
     .then((data) => {
       // console.log(data);
       showModalData(data);
-   
+
     });
-    
+
 };
 
 // Modal part  //     
- 
+
 const showModalData = modalData => {
-  console.log(modalData)
-  document.getElementById('cardInformationLabel').innerText= modalData.data.description;
-  document.getElementById('image').innerText= modalData.data.logo;
+  // console.log(modalData)
+  
+  const apiInfo = document.getElementById('modalBodyLabel');
+  apiInfo.innerHTML = `
+
+  <div class=" d-flex justify-content-between ">
+  <div class=" border border-1 rounded border-secondary-subtle container bg-danger-subtle w-auto">
+  <div class="pb-4">${modalData.data.description}</div>
+  <div class="container d-flex justify-content-between bg-body-secondary  border border-1 rounded border-secondary-subtle ">
+   <div class="text-success container w-auto ">
+           <p>${modalData.data.pricing[0].price}</p>
+           <p>${modalData.data.pricing[0].plan}</p>
+   </div>
+   <div class="container text-warning w-auto ">
+           <p>${modalData.data.pricing[1].price}</p>
+           <p>${modalData.data.pricing[1].plan}</p>
+   </div>
+   <div class="container text-danger w-auto">
+           <p>${modalData.data.pricing[2].price}</p>
+           <p>${modalData.data.pricing[2].plan}</p>
+   </div>
+  </div>
+  <div class="d-flex justify-content-between pt-3">
+     <div>
+     <h3 class="fs-3 fw-semibold">Features</h3>
+     <ul>
+        <li>${modalData.data.features}</li>
+        <li>${modalData.data.features}</li>
+        <li>${modalData.data.features}</li>
+   </ul>
+     </div>
+     <div>
+     <h3 class="fs-3 fw-semibold">Integrations</h3>
+     <ul>
+        <li>${modalData.data.integrations[0]}</li>
+        <li>${modalData.data.integrations[1]}</li>
+        <li>${modalData.data.integrations[2]}</li>
+   </ul>
+     </div>
+  </div>
+  </div>
+  
+  <div class=" container border border-1 rounded w-auto">
+            <img src="${modalData.data.image_link[0]}" class="card-img-top rounded mx-auto d-block p-4 rounded rounded-2" alt="...">
+           
+            <h5 >${modalData.data.input_output_examples[0].input}</h5>
+            <p>${modalData.data.input_output_examples[0].output}</p>
+            
+  </div>
+
+
+  </div>
+
+  `
 
 }
 
